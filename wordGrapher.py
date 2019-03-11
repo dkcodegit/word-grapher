@@ -28,3 +28,8 @@ def graphWords(arr):
 
 dictionary = worder(file_string)
 graphWords(dictionary)
+done = False
+while not done:
+    check = input("done? [Y/n]: ")
+    if check == "Y" or check == "y":
+        done = True
