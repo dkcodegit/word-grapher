@@ -1,5 +1,13 @@
+import matplotlib.pyplot as plt; plt.rcdefaults()
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+
+
+
 import operator
-file = open("file.txt", "r")
+file = open("/Users/danielkim/Documents/PyFiles/myFile.txt", "r")
 file_string = str(file.read())
 
 def worder(string):
@@ -22,14 +30,30 @@ def worder(string):
     
     return (dc)
 def graphWords(arr):
-  for x in range(len(arr)):
-    dif = arr[-1][1] - arr[-x-1][1]
-    print("*" * arr[-x-1][1] + (" " * int(dif)) + arr[-x-1][0])
+    words = []
+    
+    usage_amounts = []
+    for bar in arr:
+        if bar[1] == 1 or bar[1] == 2:
+            pass
+        else:
+            words.append(bar[0])
+            usage_amounts.append(bar[1])
+
+    y_pos = np.arange(len(words))
+    y_pos = [2*i for i in y_pos]
+    plt.figure(figsize=(20,10))
+    plt.barh(y_pos, usage_amounts, align='center', alpha=0.5)
+    plt.yticks(y_pos, words)
+    plt.xlabel('Usage')
+    plt.title('Word usage')
+
+    
+    plt.show()
+    
+    
 
 dictionary = worder(file_string)
 graphWords(dictionary)
-done = False
-while not done:
-    check = input("done? [Y/n]: ")
-    if check == "Y" or check == "y":
-        done = True
+
+    
