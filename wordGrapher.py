@@ -7,7 +7,7 @@ import matplotlib
 
 
 import operator
-file = open("/Users/danielkim/Documents/PyFiles/myFile.txt", "r")
+file = open("file.txt", "r")
 file_string = str(file.read())
 
 def worder(string):
